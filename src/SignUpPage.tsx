@@ -9,13 +9,10 @@ const SignUpPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "https://habit-haver-nestjs.vercel.app/auth/register",
-        {
-          username,
-          password,
-        }
-      );
+      const response = await axios.post("http://localhost:3000/user/register", {
+        username,
+        password,
+      });
       // Assuming registration is successful, redirect to login page or handle accordingly
       console.log("Registration successful!", response.data);
     } catch (error) {

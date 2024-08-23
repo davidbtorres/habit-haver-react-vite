@@ -9,13 +9,10 @@ const LoginPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "https://habit-haver-nestjs.vercel.app/auth/login",
-        {
-          username,
-          password,
-        }
-      );
+      const response = await axios.post("http://localhost:3000/user/login", {
+        username,
+        password,
+      });
       // Assuming login is successful, redirect to dashboard or handle token storage
       console.log("Login successful!", response.data);
     } catch (error) {
