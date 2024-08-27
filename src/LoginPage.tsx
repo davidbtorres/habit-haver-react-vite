@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const LoginPage: React.FC = () => {
+interface LoginPageProps {
+  setCurrentUser: (user: User | null) => void;
+}
+
+const LoginPage: React.FC<LoginPageProps> = ({ setCurrentUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -15,6 +20,9 @@ const LoginPage: React.FC = () => {
       });
       // Assuming login is successful, redirect to dashboard or handle token storage
       console.log("Login successful!", response.data);
+      const currentUser = response.data;
+      setCurrentUser(currentUser);
+      navigate("/home");
     } catch (error) {
       console.error("Login failed:", error);
       // Handle login failure, show error message to user
