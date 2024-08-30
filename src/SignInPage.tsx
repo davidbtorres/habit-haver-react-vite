@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-interface LoginPageProps {
+interface SignInPageProps {
   setCurrentUser: (user: User | null) => void;
 }
 
-const LoginPage: React.FC<LoginPageProps> = ({ setCurrentUser }) => {
+function mapUser(response: any): User {
+  return {
+    displayName: response.username,
+    habits: response.habits,
+  };
+}
+
+const SignInPage: React.FC<SignInPageProps> = ({ setCurrentUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -20,9 +27,10 @@ const LoginPage: React.FC<LoginPageProps> = ({ setCurrentUser }) => {
       });
       // Assuming login is successful, redirect to dashboard or handle token storage
       console.log("Login successful!", response.data);
-      const currentUser = response.data;
+      const currentUser = mapUser(response.data);
+      console.log(currentUser);
       setCurrentUser(currentUser);
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.error("Login failed:", error);
       // Handle login failure, show error message to user
@@ -58,4 +66,4 @@ const LoginPage: React.FC<LoginPageProps> = ({ setCurrentUser }) => {
   );
 };
 
-export default LoginPage;
+export default SignInPage;

@@ -1,43 +1,29 @@
 import { useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import LoginPage from "./LoginPage";
-import "./App.css";
+import { Routes, Route, Router, Navigate } from "react-router-dom";
+import SignInPage from "./SignInPage";
 import SignUpPage from "./SignUpPage";
 import HomePage from "./HomePage";
+import Navbar from "./Navbar";
+import LandingPage from "./LandingPage";
+//import "./App.css";
 
 function App() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   return (
-    <div className="App">
-      <Routes>
-        <Route
-          path="/"
-          element={
-            currentUser ? (
-              <Navigate to="/home" replace />
-            ) : (
-              <Navigate to="/login" replace />
-            )
-          }
-        />
-        <Route
-          path="/home"
-          element={
-            currentUser ? (
-              <HomePage currentUser={currentUser} />
-            ) : (
-              <Navigate to="/login" replace />
-            )
-          }
-        />
-        <Route
-          path={"/login"}
-          element={<LoginPage setCurrentUser={setCurrentUser} />}
-        />
-        <Route path={"/signup"} element={<SignUpPage />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          currentUser ? <HomePage currentUser={currentUser} /> : <LandingPage />
+        }
+      />
+      <Route
+        path={"/signin"}
+        element={<SignInPage setCurrentUser={setCurrentUser} />}
+      />
+      <Route path={"/signup"} element={<SignUpPage />} />
+    </Routes>
   );
 }
 
