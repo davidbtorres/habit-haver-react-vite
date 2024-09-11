@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./css/SignInPage.css";
 
 interface SignInPageProps {
   setCurrentUser: (user: User | null) => void;
@@ -38,7 +39,7 @@ const SignInPage: React.FC<SignInPageProps> = ({ setCurrentUser }) => {
   };
 
   return (
-    <div>
+    <div className="signin-container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>

@@ -5,7 +5,7 @@ import SignUpPage from "./SignUpPage";
 import HomePage from "./HomePage";
 import Navbar from "./Navbar";
 import LandingPage from "./LandingPage";
-//import "./App.css";
+//import "./css/App.css";
 
 function App() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);

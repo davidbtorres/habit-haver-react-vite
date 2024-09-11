@@ -4,7 +4,7 @@ import "./css/LandingPage.css";
 
 const LandingPage: React.FC = () => {
   return (
-    <div>
+    <div className="landing-page-container">
       <nav className="navbar">
         <div className="navbar-brand">
           <Link to="/">HabitHaver</Link>
@@ -18,7 +18,14 @@ const LandingPage: React.FC = () => {
           </li>
         </ul>
       </nav>
-      <h1>Welcome</h1>
+      <div className="landing-page-hero">
+        <h1>Build and Track Habits</h1>
+        <p>
+          The only habit tracking app you will ever need. Get started now, for
+          free.
+        </p>
+        <button>Try HabitHaver Free</button>
+      </div>
     </div>
   );
 };
