@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./css/SignUpPage.css";
 
 const SignUpPage: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -22,7 +23,7 @@ const SignUpPage: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="signup-container">
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <div>

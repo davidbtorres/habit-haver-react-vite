@@ -3,7 +3,6 @@ import { Routes, Route, Router, Navigate } from "react-router-dom";
 import SignInPage from "./SignInPage";
 import SignUpPage from "./SignUpPage";
 import HomePage from "./HomePage";
-import Navbar from "./Navbar";
 import LandingPage from "./LandingPage";
 //import "./css/App.css";
 

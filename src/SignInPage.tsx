@@ -40,7 +40,7 @@ const SignInPage: React.FC<SignInPageProps> = ({ setCurrentUser }) => {
 
   return (
     <div className="signin-container">
-      <h2>Login</h2>
+      <h2>Sign In</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Username:</label>
@@ -58,7 +58,7 @@ const SignInPage: React.FC<SignInPageProps> = ({ setCurrentUser }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">Sign In</button>
         <p>
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </p>

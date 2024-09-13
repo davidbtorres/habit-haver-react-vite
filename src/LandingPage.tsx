@@ -1,8 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./css/LandingPage.css";
 
 const LandingPage: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/signup");
+  };
+
   return (
     <div className="landing-page-container">
       <nav className="navbar">
@@ -24,7 +30,7 @@ const LandingPage: React.FC = () => {
           The only habit tracking app you will ever need. Get started now, for
           free.
         </p>
-        <button>Try HabitHaver Free</button>
+        <button onClick={handleClick}>Try HabitHaver Free</button>
       </div>
     </div>
   );
